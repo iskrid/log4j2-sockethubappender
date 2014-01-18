@@ -22,6 +22,6 @@ For more information about the SocketHubAppender from Log4j 1.2 see [SocketHubAp
 
 Configuration example:
 
-<SocketHub name="socketHubExample" port="7020">
-  <SerializedLayout />
-</SocketHub>
+    <SocketHub name="socketHubExample" port="7020">
+      <SerializedLayout />
+    </SocketHub>
