@@ -11,7 +11,7 @@
 
   <groupId>org.apache.logging.log4j.sockethub</groupId>
   <artifactId>log4j-1.2-api-with-sockethubappender</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
   <name>log4j-1.2-api-with-sockethubappender</name>
 
