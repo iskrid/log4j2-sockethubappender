@@ -1,4 +1,4 @@
-SocketHubAppender for Log4j2 (Prototype)
+SocketHubAppender for Log4j2
 ===================
 
 ### About
