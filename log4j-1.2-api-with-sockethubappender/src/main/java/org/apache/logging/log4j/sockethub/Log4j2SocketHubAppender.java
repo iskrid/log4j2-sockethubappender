@@ -29,6 +29,7 @@ import java.util.Vector;
 import org.apache.log4j.Category;
 import org.apache.log4j.spi.LoggingEvent;
 import org.apache.log4j.spi.ThrowableInformation;
+import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.core.Filter;
 import org.apache.logging.log4j.core.Layout;
 import org.apache.logging.log4j.core.LogEvent;
@@ -535,31 +536,27 @@ public final class Log4j2SocketHubAppender extends AbstractAppender {
   @Override
   public void append(LogEvent pEvent) {
     org.apache.log4j.Level level = null;
-    switch (pEvent.getLevel()) {
-      case ALL:
-        level = org.apache.log4j.Level.ALL;
-        break;
-      case DEBUG:
-        level = org.apache.log4j.Level.DEBUG;
-        break;
-      case ERROR:
-        level = org.apache.log4j.Level.ERROR;
-        break;
-      case FATAL:
-        level = org.apache.log4j.Level.FATAL;
-        break;
-      case OFF:
-        level = org.apache.log4j.Level.OFF;
-        break;
-      case INFO:
-        level = org.apache.log4j.Level.INFO;
-        break;
-      case TRACE:
-        level = org.apache.log4j.Level.TRACE;
-        break;
-      case WARN:
-        level = org.apache.log4j.Level.WARN;
-        break;
+    if (pEvent.getLevel()==Level.TRACE) {
+      level = org.apache.log4j.Level.TRACE;
+    }
+    else if (pEvent.getLevel()==Level.DEBUG) {
+      level = org.apache.log4j.Level.DEBUG;
+    }
+    else if (pEvent.getLevel()==Level.INFO) {
+      level = org.apache.log4j.Level.INFO;
+    }
+    else if (pEvent.getLevel()==Level.WARN) {
+      level = org.apache.log4j.Level.WARN;
+    }
+    else if (pEvent.getLevel()==Level.ERROR) {
+      level = org.apache.log4j.Level.ERROR;
+    }
+    else if (pEvent.getLevel()==Level.FATAL) {
+      level = org.apache.log4j.Level.FATAL;
+    }
+    else {
+      // fallback
+      level = org.apache.log4j.Level.ERROR;
     }
     ThrowableInformation throwableInformation = null;
     if (pEvent.getThrown() != null) {

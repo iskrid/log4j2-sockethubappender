@@ -155,18 +155,26 @@ public class Category {
   public final Level getEffectiveLevel() {
     final org.apache.logging.log4j.Level level = logger.getLevel();
 
-    switch (level) {
-      case TRACE:
-        return Level.TRACE;
-      case DEBUG:
-        return Level.DEBUG;
-      case INFO:
-        return Level.INFO;
-      case WARN:
-        return Level.WARN;
-      default:
-        return Level.ERROR;
+    if (level==org.apache.logging.log4j.Level.TRACE) {
+      return Level.TRACE;
     }
+    if (level==org.apache.logging.log4j.Level.DEBUG) {
+      return Level.DEBUG;
+    }
+    if (level==org.apache.logging.log4j.Level.INFO) {
+      return Level.INFO;
+    }
+    if (level==org.apache.logging.log4j.Level.WARN) {
+      return Level.WARN;
+    }
+    if (level==org.apache.logging.log4j.Level.ERROR) {
+      return Level.ERROR;
+    }
+    if (level==org.apache.logging.log4j.Level.FATAL) {
+      return Level.FATAL;
+    }
+    // fallback
+    return Level.ERROR;
   }
 
   public final Priority getChainedPriority() {
