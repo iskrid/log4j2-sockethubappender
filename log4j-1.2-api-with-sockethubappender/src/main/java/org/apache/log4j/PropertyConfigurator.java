@@ -56,7 +56,7 @@ public class PropertyConfigurator {
    * @param configURL The configuration URL
    * @param hierarchy The hierarchy
    */
-  public void doConfigure(final java.net.URL configURL, final LoggerRepository hierarchy) {}
+  public void doConfigure(final URL configURL, final LoggerRepository hierarchy) {}
 
   /**
    * Read configuration options from configuration file.
