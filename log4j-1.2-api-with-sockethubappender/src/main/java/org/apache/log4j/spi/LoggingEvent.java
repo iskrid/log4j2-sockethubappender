@@ -34,7 +34,7 @@ import org.apache.log4j.MDC;
 import org.apache.log4j.NDC;
 import org.apache.log4j.Priority;
 import org.apache.log4j.helpers.LogLog;
-import org.apache.logging.log4j.core.helpers.Loader;
+import org.apache.logging.log4j.core.util.Loader;
 
 // Contributors:   Nelson Minar <nelson@monkey.org>
 //                 Wolf Siberski

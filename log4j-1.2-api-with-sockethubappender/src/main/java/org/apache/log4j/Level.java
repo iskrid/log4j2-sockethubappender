@@ -22,6 +22,8 @@ import java.io.ObjectOutputStream;
 import java.io.ObjectStreamException;
 import java.io.Serializable;
 
+import org.apache.logging.log4j.util.Strings;
+
 /**
  * Defines the minimum set of levels recognized by the system, that is <code>OFF</code>, <code>FATAL</code>,
  * <code>ERROR</code>, <code>WARN</code>, <code>INFO</code, <code>DEBUG</code> and <code>ALL</code>.
@@ -208,12 +210,12 @@ public class Level extends Priority implements Serializable {
   private void readObject(final ObjectInputStream s) throws IOException, ClassNotFoundException {
     s.defaultReadObject();
     level = s.readInt();
-    syslogEquivalent = s.readInt();
-    levelStr = s.readUTF();
-    if (levelStr == null) {
-      levelStr = "";
+        syslogEquivalent = s.readInt();
+        levelStr = s.readUTF();
+        if (levelStr == null) {
+            levelStr = Strings.EMPTY;
+        }
     }
-  }
 
   /**
    * Serialize level.

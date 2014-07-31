@@ -25,11 +25,9 @@ import org.apache.logging.log4j.core.LoggerContext;
  */
 public class Logger extends Category {
 
-  private static final String FQCN = Logger.class.getName();
-
-  protected Logger(final String name) {
-    super((LoggerContext)PrivateManager.getContext(), name);
-  }
+    protected Logger(final String name) {
+        super((LoggerContext) PrivateManager.getContext(), name);
+    }
 
   Logger(final LoggerContext context, final String name) {
     super(context, name);

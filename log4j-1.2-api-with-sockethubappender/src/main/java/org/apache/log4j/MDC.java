@@ -66,12 +66,12 @@ public final class MDC {
     ThreadContext.remove(key);
   }
 
-  public static void clear() {
-    localMap.get().clear();
-    ThreadContext.clear();
-  }
+    public static void clear() {
+        localMap.get().clear();
+        ThreadContext.clearMap();
+    }
 
-  public static Hashtable<String, Object> getContext() {
+    public static Hashtable<String, Object> getContext() {
     return new Hashtable<String, Object>(localMap.get());
   }
 }

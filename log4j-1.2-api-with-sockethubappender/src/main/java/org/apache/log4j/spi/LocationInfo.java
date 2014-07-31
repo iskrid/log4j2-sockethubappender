@@ -27,7 +27,7 @@ import java.lang.reflect.Method;
 
 import org.apache.log4j.Layout;
 import org.apache.log4j.helpers.LogLog;
-import org.apache.logging.log4j.core.helpers.Constants;
+import org.apache.logging.log4j.core.util.Constants;
 
 /**
  * The internal representation of caller location information.
@@ -226,13 +226,13 @@ public class LocationInfo implements java.io.Serializable {
     }
 
 
-    ibegin = s.indexOf(Constants.LINE_SEP, ibegin);
+    ibegin = s.indexOf(Constants.LINE_SEPARATOR, ibegin);
     if (ibegin == -1)
       return;
     ibegin += Layout.LINE_SEP_LEN;
 
     // determine end of line
-    iend = s.indexOf(Constants.LINE_SEP, ibegin);
+    iend = s.indexOf(Constants.LINE_SEPARATOR, ibegin);
     if (iend == -1)
       return;
 

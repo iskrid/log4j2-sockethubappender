@@ -17,7 +17,7 @@
 
 package org.apache.log4j.or;
 
-import org.apache.logging.log4j.core.helpers.Constants;
+import org.apache.logging.log4j.core.util.Constants;
 
 
 /**
@@ -55,7 +55,7 @@ public class ThreadGroupRenderer implements ObjectRenderer {
       Thread[] t = new Thread[tg.activeCount()];
       tg.enumerate(t);
       for (int i = 0; i < t.length; i++) {
-        sbuf.append(Constants.LINE_SEP);
+        sbuf.append(Constants.LINE_SEPARATOR);
         sbuf.append("   Thread=[");
         sbuf.append(t[i].getName());
         sbuf.append(",");

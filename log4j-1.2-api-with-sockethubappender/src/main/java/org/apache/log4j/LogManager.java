@@ -24,6 +24,7 @@ import org.apache.log4j.spi.LoggerFactory;
 import org.apache.log4j.spi.LoggerRepository;
 import org.apache.log4j.spi.RepositorySelector;
 import org.apache.logging.log4j.core.LoggerContext;
+import org.apache.logging.log4j.util.Strings;
 
 /**
  *
@@ -64,9 +65,9 @@ public final class LogManager {
 
   private LogManager() {}
 
-  public static Logger getRootLogger() {
-    return (Logger)Category.getInstance((LoggerContext)PrivateManager.getContext(), "");
-  }
+    public static Logger getRootLogger() {
+        return (Logger) Category.getInstance((LoggerContext) PrivateManager.getContext(), Strings.EMPTY);
+    }
 
   public static Logger getLogger(final String name) {
     return (Logger)Category.getInstance((LoggerContext)PrivateManager.getContext(), name);

@@ -29,7 +29,6 @@ import java.util.Vector;
 import org.apache.log4j.Category;
 import org.apache.log4j.spi.LoggingEvent;
 import org.apache.log4j.spi.ThrowableInformation;
-import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.core.Filter;
 import org.apache.logging.log4j.core.Layout;
 import org.apache.logging.log4j.core.LogEvent;
@@ -41,9 +40,9 @@ import org.apache.logging.log4j.core.config.plugins.PluginAttribute;
 import org.apache.logging.log4j.core.config.plugins.PluginConfiguration;
 import org.apache.logging.log4j.core.config.plugins.PluginElement;
 import org.apache.logging.log4j.core.config.plugins.PluginFactory;
-import org.apache.logging.log4j.core.helpers.Booleans;
-import org.apache.logging.log4j.core.helpers.CyclicBuffer;
 import org.apache.logging.log4j.core.layout.SerializedLayout;
+import org.apache.logging.log4j.core.util.Booleans;
+import org.apache.logging.log4j.core.util.CyclicBuffer;
 
 /**
  * This is a SocketHubAppender implementation for Log4j2.
@@ -563,9 +562,9 @@ public final class Log4j2SocketHubAppender extends AbstractAppender {
     if (pEvent.getThrown() != null) {
       throwableInformation = new ThrowableInformation(pEvent.getThrown());
     }
-    LoggingEvent loggingEvent = new LoggingEvent(pEvent.getFQCN(),
-        Category.getInstance(pEvent.getFQCN()),
-        pEvent.getMillis(),
+    LoggingEvent loggingEvent = new LoggingEvent(pEvent.getLoggerFqcn(),
+        Category.getInstance(pEvent.getLoggerFqcn()),
+        pEvent.getTimeMillis(),
         level,
         pEvent.getMessage(),
         pEvent.getThreadName(),
